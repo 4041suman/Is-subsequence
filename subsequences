@@ -1,0 +1,51 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+       int i = 0;
+       int j = 0;
+       while (i < s.length() && j < t.length()) {
+           if (s.charAt(i) == t.charAt(j)) {
+               i++;
+               j++;
+           } else {
+               j++;
+           }
+       }
+       return i == s.length();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+
+        // Test case 1
+        String s1 = "abc";
+        String t1 = "ahbgdc";
+        boolean result1 = solution.isSubsequence(s1, t1);
+        System.out.println("Is \"" + s1 + "\" a subsequence of \"" + t1 + "\"? " + result1);
+
+        // Test case 2
+        String s2 = "axc";
+        String t2 = "ahbgdc";
+        boolean result2 = solution.isSubsequence(s2, t2);
+        System.out.println("Is \"" + s2 + "\" a subsequence of \"" + t2 + "\"? " + result2);
+
+        // Test case 3
+        String s3 = "ace";
+        String t3 = "abcde";
+        boolean result3 = solution.isSubsequence(s3, t3);
+        System.out.println("Is \"" + s3 + "\" a subsequence of \"" + t3 + "\"? " + result3);
+
+        // Test case 4
+        String s4 = "";
+        String t4 = "ahbgdc";
+        boolean result4 = solution.isSubsequence(s4, t4);
+        System.out.println("Is an empty string a subsequence of \"" + t4 + "\"? " + result4);
+
+        // Test case 5
+        String s5 = "abc";
+        String t5 = "";
+        boolean result5 = solution.isSubsequence(s5, t5);
+        System.out.println("Is \"" + s5 + "\" a subsequence of an empty string? " + result5);
+    }
+}
